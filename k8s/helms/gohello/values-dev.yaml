@@ -44,7 +44,6 @@ service:
   weight: 100
 
 ingress:
-  enabled: true
   wildcardPolicy: None
   host: gohello-dev.apps.test.lab.local
   tls: []

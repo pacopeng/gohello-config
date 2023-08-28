@@ -1,10 +1,7 @@
-{{- if .Values.ingress.enabled -}}
-{{- $fullName := include "gohello.fullname" . -}}
-{{- $svcPort := .Values.service.port -}}
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: {{ $fullName }}
+  name: go-hello-route
 spec:
   host: {{ .Values.ingress.host }}
   wildcardPolicy: {{ .Values.ingress.wildcardPolicy }}
@@ -12,7 +9,7 @@ spec:
     targetPort: {{ .Values.service.port }}
   to:
     kind: Service
-    name: {{ required "A valid .Values.service.name entry required!" .Values.service.name }}
+    name: {{ .Values.service.name }}
     weight: {{ .Values.service.weight }}
   tls:
     termination: edge
