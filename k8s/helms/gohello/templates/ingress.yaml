@@ -9,7 +9,7 @@ spec:
     targetPort: {{ .Values.service.port }}
   to:
     kind: Service
-    name: {{ .Values.service.name }}
+    name: {{ include "gohello.fullname" . }}
     weight: {{ .Values.service.weight }}
   tls:
     termination: edge
