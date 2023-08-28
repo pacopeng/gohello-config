@@ -8,8 +8,8 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: 9090
       protocol: TCP
-      name: http
+      name: 9090-http
   selector:
     {{- include "gohello.selectorLabels" . | nindent 4 }}
