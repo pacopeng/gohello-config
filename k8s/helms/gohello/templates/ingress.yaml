@@ -9,7 +9,7 @@ spec:
   host: {{ .Values.ingress.host }}
   wildcardPolicy: {{ .Values.ingress.wildcardPolicy }}
   port:
-    targetPort: {{ .Values.service.port-name }}
+    targetPort: {{ .Values.service.port }}
   to:
     kind: Service
     name: {{ required "A valid .Values.service.name entry required!" .Values.service.name }}
